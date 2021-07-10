@@ -2,12 +2,14 @@
 
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // componentes boostrap
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
+
+import { db } from '../config/firebase'
 
 
 export default function Formulario(props) {
@@ -19,7 +21,6 @@ export default function Formulario(props) {
     const valoresIniciales = {
         titulo: '',
         descripcion: '',
-        urgencia: ''
     }
 
     const [valores, setValores] = useState(valoresIniciales);
@@ -31,9 +32,26 @@ export default function Formulario(props) {
     }
 
     const handleChange = e => {
+        console.log(e.target)
         const { name, value } = e.target;
         setValores({ ...valores, [name]: value })
+        console.log(valores)
     }
+
+
+    const obtenerMedianteId = async (id) =>{
+        const doc = await db.collection('Tareas').doc(id).get();
+        setValores({...doc.data()})
+    }
+
+    useEffect(()=>{
+        console.log(props.idActual);
+        if (props.idActual === ""){
+            setValores({...valoresIniciales});
+        }else{
+            obtenerMedianteId(props.idActual); 
+        }
+    }, [props.idActual]);
 
 
 
@@ -41,24 +59,29 @@ export default function Formulario(props) {
 
         <Col className="col-12 col-sm-5 col-md-4">
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicTitle">
+                <Form.Group>
                     <Form.Label>Titulo</Form.Label>
-                    <Form.Control type="text" name="Titulo" value={valores.titulo} onChange={handleChange} />
+                    <Form.Control 
+                    type="text" 
+                    name="titulo" 
+                    value={valores.titulo} 
+                    onChange={handleChange} />
                 </Form.Group>
-                <Form.Group controlId="formBasicDescription">
+                <Form.Group>
                     <Form.Label>Descripción</Form.Label>
-                    <Form.Control type="text" name="Descripcion" value={valores.descripcion} onChange={handleChange} />
+                    <Form.Control 
+                    type="text" 
+                    name="descripcion" 
+                    value={valores.descripcion} 
+                    onChange={handleChange} />
                 </Form.Group>
-                <Form.Group controlId="exampleForm.SelectCustom">
-                    <Form.Label>Nivel de urgencia: </Form.Label>
-                    <Form.Control as="select" name="Urgencia" value={valores.urgencia} onChange={handleChange} custom>
-                        <option>Poco</option>
-                        <option>Normal</option>
-                        <option>Mucho</option>
-                    </Form.Control>
-                </Form.Group>
-                <Button variant="primary" className="mt-4" size="lg" block>
-                    Agregar
+                <Button 
+                type="submit"
+                variant="primary" 
+                className="mt-4" 
+                size="lg" 
+                block>
+                    {props.idActual === '' ? 'Guardar' : 'Actualizar'}
                 </Button>
             </Form>
         </Col>
