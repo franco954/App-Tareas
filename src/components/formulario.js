@@ -57,32 +57,40 @@ export default function Formulario(props) {
 
     return (
 
-        <Col className="col-12 col-sm-5 col-md-4">
+        <Col className="col-12 col-md-4 mt-md-4">
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Titulo</Form.Label>
+                <Form.Group className="mt-2">
+                    <Form.Label>Titulo:</Form.Label>
                     <Form.Control 
+                    className="bg-dark text-white"
+                    autoComplete="off"
+                    required
                     type="text" 
                     name="titulo" 
                     value={valores.titulo} 
                     onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Descripción</Form.Label>
+                <Form.Group className="mt-2">
+                    <Form.Label>Descripción:</Form.Label>
                     <Form.Control 
+                    className="bg-dark text-white"
+                    autoComplete="off"
+                    required
                     type="text" 
                     name="descripcion" 
                     value={valores.descripcion} 
                     onChange={handleChange} />
                 </Form.Group>
-                <Button 
-                type="submit"
-                variant="primary" 
-                className="mt-4" 
-                size="lg" 
-                block>
-                    {props.idActual === '' ? 'Guardar' : 'Actualizar'}
-                </Button>
+                <Form.Group className="text-center">
+                    <Button 
+                    type="submit"
+                    variant="info" 
+                    className="mt-4" 
+                    size="lg" 
+                    block>
+                        {props.idActual === '' ? 'Guardar' : 'Actualizar'}
+                    </Button>
+                </Form.Group>
             </Form>
         </Col>
     )

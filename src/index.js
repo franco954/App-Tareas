@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 // importar bootstrap
-import 'bootswatch/dist/slate/bootstrap.min.css';
+import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 
 

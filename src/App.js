@@ -14,7 +14,7 @@ import Tablero from './components/tablero';
 
 function App() {
   return (
-    <Container fluid="md">
+    <Container className="app" fluid="md">
       <Row>
         <Tablero />
       </Row>

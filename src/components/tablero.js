@@ -60,16 +60,19 @@ export default function Tablero() {
 
 
         return (
-            <>
+            <>  
+                <h2 className="text-center text-body mt-4">CRUD TAREAS</h2>
                 <Formulario {...{agregarTarea, obtenerTareas, idActual}}/>
-                <Col className="col-12 col-sm-6 col-md-8 d-flex flex-wrap justify-content-center mt-4" key={tareas.id}>
-                    <h2>Tareas</h2>
+                <Col 
+                className="col-12 col-md-8 d-flex flex-wrap justify-content-center mt-4 " 
+                key={tareas.id}>
+                    <h4 className="text-muted">Lista:</h4>
                     {
                         tareas.map(tarea => (
-                            <Card className="col-12 mt-3">
+                            <Card className="col-12 mt-3 border border-1 border-dark">
                             <Card.Body>
-                                <Card.Title>{tarea.titulo}</Card.Title>
-                                <Card.Text>
+                                <Card.Title className="text-info">{tarea.titulo}</Card.Title>
+                                <Card.Text className="text-muted">
                                     {tarea.descripcion}
                                 </Card.Text>
                                 <Button size="sm" className="m-2" variant="warning">
