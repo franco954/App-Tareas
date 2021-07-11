@@ -60,7 +60,7 @@ export default function Formulario(props) {
         <Col className="col-12 col-md-4 mt-md-4">
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mt-2">
-                    <Form.Label>Titulo:</Form.Label>
+                    <Form.Label className="fw-bolder text-muted">Titulo:</Form.Label>
                     <Form.Control 
                     className="bg-dark text-white"
                     autoComplete="off"
@@ -71,7 +71,7 @@ export default function Formulario(props) {
                     onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mt-2">
-                    <Form.Label>Descripción:</Form.Label>
+                    <Form.Label className="fw-bolder text-muted">Descripción:</Form.Label>
                     <Form.Control 
                     className="bg-dark text-white"
                     autoComplete="off"
