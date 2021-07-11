@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/franco954/App-Tareas/static/css/main.64852229.chunk.css",
+    "main.js": "/franco954/App-Tareas/static/js/main.f0883331.chunk.js",
+    "main.js.map": "/franco954/App-Tareas/static/js/main.f0883331.chunk.js.map",
+    "runtime-main.js": "/franco954/App-Tareas/static/js/runtime-main.33016c2b.js",
+    "runtime-main.js.map": "/franco954/App-Tareas/static/js/runtime-main.33016c2b.js.map",
+    "static/css/2.c499ff33.chunk.css": "/franco954/App-Tareas/static/css/2.c499ff33.chunk.css",
+    "static/js/2.e49866ac.chunk.js": "/franco954/App-Tareas/static/js/2.e49866ac.chunk.js",
+    "static/js/2.e49866ac.chunk.js.map": "/franco954/App-Tareas/static/js/2.e49866ac.chunk.js.map",
+    "static/js/3.79ff7aab.chunk.js": "/franco954/App-Tareas/static/js/3.79ff7aab.chunk.js",
+    "static/js/3.79ff7aab.chunk.js.map": "/franco954/App-Tareas/static/js/3.79ff7aab.chunk.js.map",
+    "index.html": "/franco954/App-Tareas/index.html",
+    "static/css/2.c499ff33.chunk.css.map": "/franco954/App-Tareas/static/css/2.c499ff33.chunk.css.map",
+    "static/css/main.64852229.chunk.css.map": "/franco954/App-Tareas/static/css/main.64852229.chunk.css.map",
+    "static/js/2.e49866ac.chunk.js.LICENSE.txt": "/franco954/App-Tareas/static/js/2.e49866ac.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33016c2b.js",
+    "static/css/2.c499ff33.chunk.css",
+    "static/js/2.e49866ac.chunk.js",
+    "static/css/main.64852229.chunk.css",
+    "static/js/main.f0883331.chunk.js"
+  ]
+}
