@@ -1,7 +1,6 @@
 
 import React from 'react';
 
-import './styles/App.css';
 
 // compoenentes boostrap
 import Container from 'react-bootstrap/Container'
@@ -10,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 
 // componentes 
 import Tablero from './components/tablero';
+import './scss/custom.css';
 
 
 function App() {
