@@ -19,11 +19,6 @@ import Modal from 'react-bootstrap/Modal'
 import Spinner from 'react-bootstrap/Spinner'
 
 
-// styles
-
-import '../scss/tablero.scss';
-
-
 export default function Tablero() {
 
     const [tareas, setTareas] = useState([])

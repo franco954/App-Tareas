@@ -9,7 +9,9 @@ import Row from 'react-bootstrap/Row'
 
 // componentes 
 import Tablero from './components/tablero';
-import './scss/custom.css';
+
+//styles
+import './styles/styles.css';
 
 
 function App() {
