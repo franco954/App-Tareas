@@ -14,7 +14,7 @@ import { db } from '../config/firebase'
 
 export default function Formulario(props) {
 
-    console.log(props)
+    console.log(props.setidActual)
 
 
 
@@ -24,6 +24,10 @@ export default function Formulario(props) {
     }
 
     const [valores, setValores] = useState(valoresIniciales);
+
+    const handleCancel = () =>{
+        props.setidActual('')
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -81,15 +85,26 @@ export default function Formulario(props) {
                     value={valores.descripcion} 
                     onChange={handleChange} />
                 </Form.Group>
-                <Form.Group className="text-center">
+                <Form.Group className="d-flex justify-content-center">
                     <Button 
                     type="submit"
                     variant="info" 
-                    className="mt-4" 
+                    className="m-3" 
                     size="lg" 
                     block>
                         {props.idActual === '' ? 'Guardar' : 'Actualizar'}
                     </Button>
+                    {
+                        props.idActual &&
+                            <Button 
+                            variant="danger" 
+                            className="m-3" 
+                            size="lg" 
+                            onClick={handleCancel}
+                            block>
+                                Cancelar
+                            </Button>
+                    }
                 </Form.Group>
             </Form>
         </Col>

@@ -10,8 +10,7 @@ import Row from 'react-bootstrap/Row'
 // componentes 
 import Tablero from './components/tablero';
 
-//styles
-import './styles/styles.css';
+import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 
 function App() {

@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 // db firebase
-
 import { db } from '../config/firebase.js'
 
 // componentes
@@ -13,10 +12,12 @@ import Formulario from './formulario.js';
 
 // componentes bootstrap
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/esm/Button';
 import Modal from 'react-bootstrap/Modal'
 import Spinner from 'react-bootstrap/Spinner'
+
+// tarea
+import Tarea from './tarea.js'
 
 
 export default function Tablero() {
@@ -30,12 +31,8 @@ export default function Tablero() {
     const [idEliminar, setIdEliminar] = useState()
     const handleDelete = (id) => { setIdEliminar(id) }
 
-
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
 
     const agregarTarea = async (valores) => {
         try {
@@ -44,6 +41,7 @@ export default function Tablero() {
             }
             else {
                 await db.collection('Tareas').doc(idActual).update(valores);
+                setidActual('')
             }
         } catch (error) {
             console.error(error)
@@ -52,7 +50,6 @@ export default function Tablero() {
 
 
     const mostrarModal = (id) => {
-        console.log("tocaste")
         handleShow()
         handleDelete(id)
     };
@@ -105,7 +102,7 @@ export default function Tablero() {
                 </Modal>
             </>
             <h2 className="text-center text-info mt-4 fw-bold">CRUD TAREAS</h2>
-            <Formulario {...{ agregarTarea, obtenerTareas, idActual }} />
+            <Formulario {...{ agregarTarea, obtenerTareas, idActual, setidActual }} />
             <Col
                 className="col-12 col-md-8 d-flex flex-wrap justify-content-center mt-4 "
                 key={tareas.id}>
@@ -117,31 +114,8 @@ export default function Tablero() {
                             </Spinner>
                         </div>
                         :
-                        
                         tareas.map(tarea => (
-                            <Card className="col-12 mt-3 border border-1 border-dark">
-                                <Card.Body>
-                                    <Card.Title className="text-info fw-bold">{tarea.titulo}</Card.Title>
-                                    <Card.Text className="text-muted">
-                                        {tarea.descripcion}
-                                    </Card.Text>
-                                    <Button
-                                        className="m-2"
-                                        size="sm"
-                                        variant="warning"
-                                        onClick={() => setidActual(tarea.id)}
-                                    >
-                                        <i class="far fa-edit"></i>
-                                    </Button>
-                                    <Button
-                                        variant="danger"
-                                        size="sm"
-                                        onClick={() => mostrarModal(tarea.id)}
-                                    >
-                                        <i class="far fa-trash-alt"></i>
-                                    </Button>
-                                </Card.Body>
-                            </Card>
+                            <Tarea data={tarea} modal={mostrarModal} setId={setidActual}/>
                         ))}
             </Col>
         </>

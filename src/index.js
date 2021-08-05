@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-// importar bootstrap
-import 'bootswatch/dist/darkly/bootstrap.min.css';
-
+import './styles/styles.css';
 
 
 ReactDOM.render(
